@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    private boolean darklightflag = true;
     public MyView myView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
         ImageButton clearButton = findViewById(R.id.clearButton);
         ImageButton sizeButton = findViewById(R.id.sizeButton);
         ImageButton colorButton = findViewById(R.id.colorButton);
-        ImageButton saveButton = findViewById(R.id.saveButton);
+        ImageButton darknlightButtonButton = findViewById(R.id.darkNlightButton);
+
+        LinearLayout linearLayout = findViewById(R.id.buttonlayout);
 
         Button.OnClickListener listener = new Button.OnClickListener(){
             @Override
@@ -43,6 +48,19 @@ public class MainActivity extends AppCompatActivity {
                 if(v.getId() == R.id.sizeButton)
                     myView.penColor();
 
+                if(v.getId() == R.id.darkNlightButton) {
+                    if(darklightflag == true){
+                        myView.darklightChange1();
+                        findViewById(R.id.main).setBackgroundColor(Color.parseColor("#c1b4b0"));
+                        darklightflag = false;
+                    }
+                    else{
+                        myView.darklightChange2();
+                        findViewById(R.id.main).setBackgroundColor(Color.parseColor("#A1887F"));
+                        darklightflag = true;
+                    }
+
+                }
 
             }
 
@@ -55,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         clearButton.setOnClickListener(listener);
         sizeButton.setOnClickListener(listener);
         colorButton.setOnClickListener(listener);
-        saveButton.setOnClickListener(listener);
+        darknlightButtonButton.setOnClickListener(listener);
 
 /*
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -80,6 +98,12 @@ class MyView extends View {
     ArrayList<Integer> saveY = new ArrayList<>();
 
 
+    public void darklightChange1(){
+        setBackgroundColor(Color.parseColor("#c1b4b0"));
+    }
+    public void darklightChange2(){
+        setBackgroundColor(Color.parseColor("#A1887F"));
+    }
     public void penColor(){
 
     }
@@ -103,7 +127,7 @@ class MyView extends View {
 
     public MyView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setBackgroundColor(Color.parseColor("#A1887F"));           // 배경색
+        setBackgroundColor(Color.parseColor("#A1887F"));           // 배경색 심근경색 크흡킄ㅋ큭
     }
 
 

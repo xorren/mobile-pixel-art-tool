@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,6 +42,11 @@ class MyView extends View {
 
     ArrayList<Integer> saveX = new ArrayList<>();
     ArrayList<Integer> saveY = new ArrayList<>();
+
+    ImageButton clearbutton = (ImageButton) findViewById(R.id.clearButton);
+    ImageButton sizebutton = (ImageButton) findViewById(R.id.sizeButton);
+    ImageButton colorbutton = (ImageButton) findViewById(R.id.colorButton);
+    ImageButton savebutton = (ImageButton) findViewById(R.id.saveButton);
 
 //    public MyView(Context context) {
 //        super(context);

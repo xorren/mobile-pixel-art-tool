@@ -65,27 +65,24 @@ class MyView extends View {
 
 
     public boolean onTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            int x = (int) event.getX();
-            int y = (int) event.getY();
+        int x = (int) event.getX();
+        int y = (int) event.getY();
 
-            for (int i = 0; i < 10; i++) {
-                for (int j = 0; j < 10; j++) {
-                    int left = 50 + 60 * i;
-                    int top = 50 + 60 * j;
-                    int right = left + 60;
-                    int bottom = top + 60;
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                int left = 50 + 60 * i;
+                int top = 50 + 60 * j;
+                int right = left + 60;
+                int bottom = top + 60;
 
-                    if (x >= left && x < right && y >= top && y < bottom) {
-                        saveX.add(i);
-                        saveY.add(j);
-                        invalidate();
-                        return true;
-                    }
-
+                if (x >= left && x < right && y >= top && y < bottom) {
+                    saveX.add(i);
+                    saveY.add(j);
+                    invalidate();
+                    return true;
                 }
-            }
 
+            }
         }
         return false;
     }

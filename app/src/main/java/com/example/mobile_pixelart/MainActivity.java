@@ -103,7 +103,7 @@ class MyView extends View {
 
     public MyView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setBackgroundColor(Color.parseColor("#F5F5DC"));           // 배경색
+        setBackgroundColor(Color.parseColor("#A1887F"));           // 배경색
     }
 
 

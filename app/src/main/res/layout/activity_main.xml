@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F5F5DC"
+        android:background="#A1887F"
         android:orientation="horizontal">
 
         <ImageButton
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="onClick"
-            android:backgroundTint="#F5F5DC"
+            android:backgroundTint="#A1887F"
 
             android:src="@drawable/clear_button" />
 
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="onClick"
-            android:backgroundTint="#F5F5DC"
+            android:backgroundTint="#A1887F"
             android:src="@drawable/size_button" />
 
         <ImageButton
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="onClick"
-            android:backgroundTint="#F5F5DC"
+            android:backgroundTint="#A1887F"
             android:src="@drawable/color_button" />
 
         <ImageButton
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="onClick"
-            android:backgroundTint="#F5F5DC"
+            android:backgroundTint="#A1887F"
             android:src="@drawable/buttonicon" />
     </LinearLayout>
 

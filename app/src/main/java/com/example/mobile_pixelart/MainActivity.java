@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 class MyView extends View {
     int canvasSize = 16;
     int cellsize = 560 / canvasSize;
-    int startWich = 510;
+    int startWich = 210;
 
     ArrayList<Integer> saveX = new ArrayList<>();
     ArrayList<Integer> saveY = new ArrayList<>();

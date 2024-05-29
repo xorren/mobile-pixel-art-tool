@@ -11,6 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#F5F5DC"
         android:orientation="horizontal">
 
         <ImageButton
@@ -18,28 +19,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:backgroundTint="#F5F5DC"
+
+            android:src="@drawable/buttonicon" />
 
         <ImageButton
             android:id="@+id/imageButton6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:backgroundTint="#F5F5DC"
+            android:src="@drawable/buttonicon" />
 
         <ImageButton
             android:id="@+id/imageButton7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:backgroundTint="#F5F5DC"
+            android:src="@drawable/buttonicon" />
 
         <ImageButton
             android:id="@+id/imageButton8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:backgroundTint="#F5F5DC"
+            android:src="@drawable/buttonicon" />
     </LinearLayout>
 
     <com.example.mobile_pixelart.MyView

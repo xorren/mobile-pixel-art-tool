@@ -24,13 +24,18 @@ public class MainActivity extends AppCompatActivity {
 }
 
 class MyView extends View {
+    int canvasSize = 16;
+    int cellsize = 560 / canvasSize;
+    int startWich = 510;
+
+
 
     ArrayList<Integer> saveX = new ArrayList<>();
     ArrayList<Integer> saveY = new ArrayList<>();
 
     public MyView(Context context) {
         super(context);
-        setBackgroundColor(Color.BLACK);
+        setBackgroundColor(Color.parseColor("#F5F5DC"));
     }
 
 
@@ -39,26 +44,31 @@ class MyView extends View {
         Paint paint = new Paint();
         paint.setStrokeWidth(3);
 
-
         paint.setColor(Color.CYAN);
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                canvas.drawRect(50 + 60 * i, 50 + 60 * j, 110 + 60 * i, 110 + 60 * j, paint);
+        for (int i = 0; i < canvasSize; i++) {
+            for (int j = 0; j < canvasSize; j++) {
+                if((i + j) % 2 != 0){
+                    paint.setColor(Color.parseColor("#A9A9A9"));
+                }
+                else{
+                    paint.setColor(Color.parseColor("#D3D3D3"));
+                }
+                canvas.drawRect(80 + cellsize * i, startWich + cellsize * j, 80 + cellsize * (i + 1), startWich + cellsize * (j + 1), paint);
             }
         }
 
-        paint.setColor(Color.BLACK);
-        for (int i = 0; i <= 10; i++) {
-            canvas.drawLine(50 + 60 * i, 50, 50 + 60 * i, 650, paint);
-            canvas.drawLine(50, 50 + 60 * i, 650, 50 + 60 * i, paint);
-        }
+//        paint.setColor(Color.BLACK);
+//        for (int i = 0; i <= 10; i++) {
+//            canvas.drawLine(50 + cellsize * i, startWich, 50 + cellsize * i, 650 + startWich, paint);
+//            canvas.drawLine(50, startWich + cellsize * i, 650 + startWich, 50 + cellsize * i, paint);
+//        }
 
-        paint.setColor(Color.MAGENTA);
+        paint.setColor(Color.parseColor("#FFA07A"));
         for (int i = 0; i < saveX.size(); i++) {
-            int left = 50 + 60 * saveX.get(i);
-            int top = 50 + 60 * saveY.get(i);
-            int right = left + 60;
-            int bottom = top + 60;
+            int left = 80 + cellsize * saveX.get(i);
+            int top = startWich + cellsize * saveY.get(i);
+            int right = left + cellsize;
+            int bottom = top + cellsize;
             canvas.drawRect(left, top, right, bottom, paint);
         }
     }
@@ -68,12 +78,12 @@ class MyView extends View {
         int x = (int) event.getX();
         int y = (int) event.getY();
 
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                int left = 50 + 60 * i;
-                int top = 50 + 60 * j;
-                int right = left + 60;
-                int bottom = top + 60;
+        for (int i = 0; i < canvasSize; i++) {
+            for (int j = 0; j < canvasSize; j++) {
+                int left = 80 + cellsize * i;
+                int top = startWich + cellsize * j;
+                int right = left + cellsize;
+                int bottom = top + cellsize;
 
                 if (x >= left && x < right && y >= top && y < bottom) {
                     saveX.add(i);

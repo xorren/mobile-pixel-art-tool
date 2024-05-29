@@ -9,28 +9,61 @@ import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+    public MyView myView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        myView = findViewById(R.id.myView);
+        ImageButton clearButton = findViewById(R.id.clearButton);
+        ImageButton sizeButton = findViewById(R.id.sizeButton);
+        ImageButton colorButton = findViewById(R.id.colorButton);
+        ImageButton saveButton = findViewById(R.id.saveButton);
+
+        Button.OnClickListener listener = new Button.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if(v.getId() == R.id.clearButton)
+                    myView.clearCanvas();
+
+                if(v.getId() == R.id.sizeButton)
+                    myView.penSize();
+
+                if(v.getId() == R.id.sizeButton)
+                    myView.penColor();
+
+
+            }
+
+
+
+
+
+        };
+
+        clearButton.setOnClickListener(listener);
+        sizeButton.setOnClickListener(listener);
+        colorButton.setOnClickListener(listener);
+        saveButton.setOnClickListener(listener);
+
+/*
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-        });
+
+        });*/
 
     }
 }
@@ -40,13 +73,28 @@ class MyView extends View {
     int cellsize = 560 / canvasSize;
     int startWich = 210;
 
+    int plusRight = 0;
+    int plusBottom = 0;
+
     ArrayList<Integer> saveX = new ArrayList<>();
     ArrayList<Integer> saveY = new ArrayList<>();
 
-    ImageButton clearbutton = (ImageButton) findViewById(R.id.clearButton);
-    ImageButton sizebutton = (ImageButton) findViewById(R.id.sizeButton);
-    ImageButton colorbutton = (ImageButton) findViewById(R.id.colorButton);
-    ImageButton savebutton = (ImageButton) findViewById(R.id.saveButton);
+
+    public void penColor(){
+
+    }
+    public void penSize(){
+        plusRight += 10;
+        plusBottom += 10;
+    }
+
+    public void clearCanvas() {
+        plusRight = 0;
+        plusBottom = 0;
+        saveX.clear();
+        saveY.clear();
+        invalidate();
+    }
 
 //    public MyView(Context context) {
 //        super(context);
@@ -55,7 +103,7 @@ class MyView extends View {
 
     public MyView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setBackgroundColor(Color.parseColor("#F5F5DC"));
+        setBackgroundColor(Color.parseColor("#F5F5DC"));           // 배경색
     }
 
 
@@ -82,21 +130,26 @@ class MyView extends View {
 //            canvas.drawLine(50 + cellsize * i, startWich, 50 + cellsize * i, 650 + startWich, paint);
 //            canvas.drawLine(50, startWich + cellsize * i, 650 + startWich, 50 + cellsize * i, paint);
 //        }
-
-        paint.setColor(Color.parseColor("#FFA07A"));
+        paint.setColor(Color.parseColor("#FFA07A"));      // 드로잉
         for (int i = 0; i < saveX.size(); i++) {
             int left = 80 + cellsize * saveX.get(i);
             int top = startWich + cellsize * saveY.get(i);
-            int right = left + cellsize;
-            int bottom = top + cellsize;
+            int right = left + cellsize + plusRight;
+            int bottom = top + cellsize + plusBottom;
             canvas.drawRect(left, top, right, bottom, paint);
         }
     }
 
 
-    public boolean onTouchEvent(MotionEvent event) {
+    public boolean onTouchEvent(MotionEvent event) {       // 드로잉 -> 픽셀 채우기
         int x = (int) event.getX();
         int y = (int) event.getY();
+
+        int plusRight = 0;
+        int plusBottom = 0;
+
+
+
 
         for (int i = 0; i < canvasSize; i++) {
             for (int j = 0; j < canvasSize; j++) {

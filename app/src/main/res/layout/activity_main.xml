@@ -19,6 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="onClick"
             android:backgroundTint="#F5F5DC"
 
             android:src="@drawable/buttonicon" />
@@ -28,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="onClick"
             android:backgroundTint="#F5F5DC"
             android:src="@drawable/buttonicon" />
 
@@ -36,6 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="onClick"
             android:backgroundTint="#F5F5DC"
             android:src="@drawable/buttonicon" />
 
@@ -44,6 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="onClick"
             android:backgroundTint="#F5F5DC"
             android:src="@drawable/buttonicon" />
     </LinearLayout>

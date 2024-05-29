@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                     myView.clearCanvas();
 
                 if(v.getId() == R.id.sizeButton)
-                    myView.penSize();
+                    myView.penSizeUp();
 
                 if(v.getId() == R.id.sizeButton)
                     myView.penColor();
@@ -83,9 +83,9 @@ class MyView extends View {
     public void penColor(){
 
     }
-    public void penSize(){
-        plusRight += 10;
-        plusBottom += 10;
+    public void penSizeUp(){
+        plusRight += 35;
+        plusBottom += 35;
     }
 
     public void clearCanvas() {
@@ -149,14 +149,12 @@ class MyView extends View {
         int plusBottom = 0;
 
 
-
-
         for (int i = 0; i < canvasSize; i++) {
             for (int j = 0; j < canvasSize; j++) {
                 int left = 80 + cellsize * i;
                 int top = startWich + cellsize * j;
-                int right = left + cellsize;
-                int bottom = top + cellsize;
+                int right = left + cellsize ;
+                int bottom = top + cellsize ;
 
                 if (x >= left && x < right && y >= top && y < bottom) {
                     saveX.add(i);

@@ -21,7 +21,7 @@
             android:layout_weight="1"
             android:backgroundTint="#F5F5DC"
 
-            android:src="@drawable/buttonicon" />
+            android:src="@drawable/clear_button" />
 
         <ImageButton
             android:id="@+id/sizeButton"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#F5F5DC"
-            android:src="@drawable/buttonicon" />
+            android:src="@drawable/size_button" />
 
         <ImageButton
             android:id="@+id/colorButton"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#F5F5DC"
-            android:src="@drawable/buttonicon" />
+            android:src="@drawable/color_button" />
 
         <ImageButton
             android:id="@+id/saveButton"

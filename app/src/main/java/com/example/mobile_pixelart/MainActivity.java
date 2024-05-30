@@ -92,16 +92,26 @@ class MyView extends View {
     int startWich = 210;
 
     boolean flag = true;
-    int plusRight = 0;
-    int plusBottom = 0;
+    int currentPenSize = 0;
+
 
     int R = 255;         // 기본 펜 색상
     int G = 160;
     int B = 122;
 
 
-    ArrayList<Integer> saveX = new ArrayList<>();
-    ArrayList<Integer> saveY = new ArrayList<>();
+  /*  ArrayList<Integer> saveX = new ArrayList<>();
+    ArrayList<Integer> saveY = new ArrayList<>();*/
+
+    /*ArrayList<Integer> saveXSmall = new ArrayList<>();
+    ArrayList<Integer> saveYSmall = new ArrayList<>();
+    ArrayList<Integer> saveXLarge = new ArrayList<>();
+    ArrayList<Integer> saveYLarge = new ArrayList<>();*/
+
+    ArrayList<Pixel> pixels = new ArrayList<>();
+
+/*    ArrayList<Integer> currentSaveX = saveXSmall;
+    ArrayList<Integer> currentSaveY = saveYSmall;*/
 
 
     public void darklightChange1(){
@@ -121,24 +131,11 @@ class MyView extends View {
         invalidate();
     }
     public void penSize(){
-        if(flag){
-            plusRight +=  cellsize;
-            plusBottom +=  cellsize;
-            flag = !flag;
-        }
-        else{
-            plusRight -=  cellsize;
-            plusBottom -=  cellsize;
-            flag = !flag;
-        }
-        invalidate();
+        currentPenSize = (currentPenSize == 0) ? 1 : 0;
     }
 
     public void clearCanvas() {
-        plusRight = 0;
-        plusBottom = 0;
-        saveX.clear();
-        saveY.clear();
+        pixels.clear();
         invalidate();
     }
 
@@ -171,28 +168,29 @@ class MyView extends View {
             }
         }
 
+        for (Pixel pixel : pixels) {
+            paint.setColor(pixel.color);
+            int left = 80 + cellsize * pixel.x;
+            int top = startWich + cellsize * pixel.y;
+            int sizeOffset = pixel.size * cellsize;
+            int right = left + cellsize + sizeOffset;
+            int bottom = top + cellsize + sizeOffset;
+            canvas.drawRect(left, top, right, bottom, paint);
+        }
+
+
 //        paint.setColor(Color.BLACK);
 //        for (int i = 0; i <= 10; i++) {
 //            canvas.drawLine(50 + cellsize * i, startWich, 50 + cellsize * i, 650 + startWich, paint);
 //            canvas.drawLine(50, startWich + cellsize * i, 650 + startWich, 50 + cellsize * i, paint);
 //        }
-        paint.setColor(Color.rgb(R, G, B));   // 드로잉
-        for (int i = 0; i < saveX.size(); i++) {
-            int left = 80 + cellsize * saveX.get(i);
-            int top = startWich + cellsize * saveY.get(i);
-            int right = left + cellsize + plusRight;
-            int bottom = top + cellsize + plusBottom;
-            canvas.drawRect(left, top, right, bottom, paint);
-        }
+
     }
 
 
     public boolean onTouchEvent(MotionEvent event) {       // 드로잉 -> 픽셀 채우기
         int x = (int) event.getX();
         int y = (int) event.getY();
-
-        int plusRight = 0;
-        int plusBottom = 0;
 
 
         for (int i = 0; i < canvasSize; i++) {
@@ -203,8 +201,7 @@ class MyView extends View {
                 int bottom = top + cellsize ;
 
                 if (x >= left && x < right && y >= top && y < bottom) {
-                    saveX.add(i);
-                    saveY.add(j);
+                    pixels.add(new Pixel(i, j, Color.rgb(R, G, B), currentPenSize));
                     invalidate();
                     return true;
                 }
@@ -213,6 +210,21 @@ class MyView extends View {
         }
         return false;
     }
+
+    private static class Pixel {
+        int x, y;
+        int color;
+        int size;
+
+        Pixel(int x, int y, int color, int size) {
+            this.x = x;
+            this.y = y;
+            this.color = color;
+            this.size = size;
+        }
+    }
+
+
 }
 
 

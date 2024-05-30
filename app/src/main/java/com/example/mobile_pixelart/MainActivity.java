@@ -43,10 +43,10 @@ public class MainActivity extends AppCompatActivity {
                     myView.clearCanvas();
 
                 if(v.getId() == R.id.sizeButton)
-                    myView.penSizeUp();
+                    myView.penSize();
 
-                if(v.getId() == R.id.sizeButton)
-                    myView.penColor();
+                if(v.getId() == R.id.colorButton)
+                    myView.randomPenColor();
 
                 if(v.getId() == R.id.darkNlightButton) {
                     if(darklightflag == true){
@@ -91,8 +91,14 @@ class MyView extends View {
     int cellsize = 560 / canvasSize;
     int startWich = 210;
 
+    boolean flag = true;
     int plusRight = 0;
     int plusBottom = 0;
+
+    int R = 255;         // 기본 펜 색상
+    int G = 160;
+    int B = 122;
+
 
     ArrayList<Integer> saveX = new ArrayList<>();
     ArrayList<Integer> saveY = new ArrayList<>();
@@ -106,10 +112,24 @@ class MyView extends View {
     }
     public void penColor(){
 
+    public void randomPenColor(){
+        this.R = (int)(Math.random() * 255);
+        this.G = (int)(Math.random() * 255);
+        this.B = (int)(Math.random() * 255);
+        invalidate();
     }
-    public void penSizeUp(){
-        plusRight += 35;
-        plusBottom += 35;
+    public void penSize(){
+        if(flag){
+            plusRight +=  cellsize;
+            plusBottom +=  cellsize;
+            flag = !flag;
+        }
+        else{
+            plusRight -=  cellsize;
+            plusBottom -=  cellsize;
+            flag = !flag;
+        }
+        invalidate();
     }
 
     public void clearCanvas() {
@@ -154,7 +174,7 @@ class MyView extends View {
 //            canvas.drawLine(50 + cellsize * i, startWich, 50 + cellsize * i, 650 + startWich, paint);
 //            canvas.drawLine(50, startWich + cellsize * i, 650 + startWich, 50 + cellsize * i, paint);
 //        }
-        paint.setColor(Color.parseColor("#FFA07A"));      // 드로잉
+        paint.setColor(Color.rgb(R, G, B));   // 드로잉
         for (int i = 0; i < saveX.size(); i++) {
             int left = 80 + cellsize * saveX.get(i);
             int top = startWich + cellsize * saveY.get(i);

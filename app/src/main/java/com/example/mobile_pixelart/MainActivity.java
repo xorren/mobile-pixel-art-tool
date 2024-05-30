@@ -110,7 +110,9 @@ class MyView extends View {
     public void darklightChange2(){
         setBackgroundColor(Color.parseColor("#A1887F"));
     }
-    public void penColor(){
+    public void penColor() {
+
+    }
 
     public void randomPenColor(){
         this.R = (int)(Math.random() * 255);

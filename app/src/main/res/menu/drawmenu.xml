@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/item1"
+        android:title="브러쉬 사이즈 감소"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/item2"
+        android:title="R:+10"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/item3"
+        android:title="G:+10"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/item4"
+        android:title="B:+10"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/item5"
+        android:title="R:-10"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/item6"
+        android:title="G:-10"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/item7"
+        android:title="B:-10"
+        app:showAsAction="never"/>
+
+</menu>

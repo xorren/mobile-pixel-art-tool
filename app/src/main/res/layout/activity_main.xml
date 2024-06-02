@@ -19,34 +19,34 @@
         <ImageButton
             android:id="@+id/clearButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="256px"
             android:layout_weight="1"
-            android:onClick="onClick"
             android:background="@android:color/transparent"
+            android:onClick="onClick"
             android:src="@drawable/clear_button" />
 
         <ImageButton
             android:id="@+id/sizeButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="256px"
             android:layout_weight="1"
-            android:onClick="onClick"
             android:background="@android:color/transparent"
+            android:onClick="onClick"
             android:src="@drawable/size_button" />
 
         <ImageButton
             android:id="@+id/colorButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="256px"
             android:layout_weight="1"
-            android:onClick="onClick"
             android:background="@android:color/transparent"
+            android:onClick="onClick"
             android:src="@drawable/color_button" />
 
         <ImageButton
             android:id="@+id/darkNlightButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="256px"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:onClick="onClick"

@@ -7,6 +7,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -14,11 +17,61 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.drawmenu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemid = item.getItemId();
+        myView = findViewById(R.id.myView);
+        if(itemid == R.id.item1){
+            myView.penSizedown();
+        }
+        else if(itemid == R.id.item2){
+            if(myView.R < 246){
+                myView.R += 10;
+            }
+        }
+        else if(itemid == R.id.item3){
+            if(myView.R < 246){
+                myView.G += 10;
+            }
+        }
+        else if(itemid == R.id.item4){
+            if(myView.R < 246){
+                myView.B += 10;
+            }
+        }
+        else if(itemid == R.id.item2){
+            if(myView.R > 9){
+                myView.R -= 10;
+            }
+        }
+        else if(itemid == R.id.item3){
+            if(myView.R > 9){
+                myView.G -= 10;
+            }
+        }
+        else if(itemid == R.id.item4){
+            if(myView.R > 9){
+                myView.B -= 10;
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     private boolean darklightflag = true;
     public MyView myView;
@@ -89,15 +142,15 @@ public class MainActivity extends AppCompatActivity {
 class MyView extends View {
     int canvasSize = 16;
     int cellsize = 560 / canvasSize;
-    int startWich = 210;
+    int startWich = 148; // wich는 위치라는 뜻, 여기서 80단위로 크기 맞출것
 
     boolean flag = true;
     int currentPenSize = 0;
 
 
-    int R = 255;         // 기본 펜 색상
-    int G = 160;
-    int B = 122;
+    int R = 0;         // 기본 펜 색상
+    int G = 0;
+    int B = 0;
 
 
   /*  ArrayList<Integer> saveX = new ArrayList<>();
@@ -131,7 +184,14 @@ class MyView extends View {
         invalidate();
     }
     public void penSize(){
-        currentPenSize = (currentPenSize == 0) ? 1 : 0;
+        currentPenSize += 1;
+//        currentPenSize = (currentPenSize == 0) ? 1 : 0;
+    }
+
+    public void penSizedown(){
+        if(currentPenSize > 0){
+            currentPenSize -= 1;
+        }
     }
 
     public void clearCanvas() {

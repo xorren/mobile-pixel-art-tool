@@ -9,32 +9,18 @@
 
     <item
         android:id="@+id/item2"
-        android:title="R:+10"
+        android:title="16x16"
         app:showAsAction="never"/>
 
     <item
         android:id="@+id/item3"
-        android:title="G:+10"
+        android:title="32x32"
         app:showAsAction="never"/>
 
     <item
         android:id="@+id/item4"
-        android:title="B:+10"
+        android:title="64x64"
         app:showAsAction="never"/>
 
-    <item
-        android:id="@+id/item5"
-        android:title="R:-10"
-        app:showAsAction="never"/>
-
-    <item
-        android:id="@+id/item6"
-        android:title="G:-10"
-        app:showAsAction="never"/>
-
-    <item
-        android:id="@+id/item7"
-        android:title="B:-10"
-        app:showAsAction="never"/>
 
 </menu>

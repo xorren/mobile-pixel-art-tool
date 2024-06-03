@@ -53,30 +53,6 @@
             android:src="@drawable/darklight_button" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/editTextNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="캔버스 사이즈"
-            android:inputType="number" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:backgroundTint="@color/black"
-            android:onClick="onClick"
-            android:text="입력" />
-    </LinearLayout>
-
     <com.example.mobile_pixelart.MyView
         android:id="@+id/myView"
         android:layout_width="match_parent"

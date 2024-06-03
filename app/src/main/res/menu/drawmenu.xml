@@ -4,8 +4,8 @@
 
     <item
         android:id="@+id/item1"
-        android:title="브러쉬 사이즈 감소"
-        app:showAsAction="never"/>
+        android:title="브러쉬 크기 초기화"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/item2"

@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
 }
 
 class MyView extends View {
-    int canvasSize = 64;
+    int canvasSize = 16;
     int cellsize = 560 / canvasSize;
     int startWich = 68; // wich는 위치라는 뜻, 여기서 80단위로 크기 맞출것
 
@@ -201,7 +201,7 @@ class MyView extends View {
 
     public void penSizedown(){
         if(currentPenSize > 0){
-            currentPenSize -= 1;
+            currentPenSize = 0;
         }
     }
 

@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
@@ -89,6 +90,9 @@ public class MainActivity extends AppCompatActivity {
 
         LinearLayout linearLayout = findViewById(R.id.buttonlayout);
 
+        EditText canvasSize = (EditText) findViewById(R.id.editTextNumber);
+        Button canvasButton = (Button) findViewById(R.id.button);
+
         Button.OnClickListener listener = new Button.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -115,6 +119,12 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
+                if (v.getId() == R.id.button) {
+                    String canvasSizeText = canvasSize.getText().toString();
+                    int newCanvasSize = Integer.parseInt(canvasSizeText);
+                    myView.setCanvasSize(newCanvasSize);
+                }
+
             }
 
 
@@ -127,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
         sizeButton.setOnClickListener(listener);
         colorButton.setOnClickListener(listener);
         darknlightButtonButton.setOnClickListener(listener);
+        canvasButton.setOnClickListener(listener);
 
 /*
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -140,9 +151,9 @@ public class MainActivity extends AppCompatActivity {
 }
 
 class MyView extends View {
-    int canvasSize = 16;
+    int canvasSize = 64;
     int cellsize = 560 / canvasSize;
-    int startWich = 148; // wich는 위치라는 뜻, 여기서 80단위로 크기 맞출것
+    int startWich = 68; // wich는 위치라는 뜻, 여기서 80단위로 크기 맞출것
 
     boolean flag = true;
     int currentPenSize = 0;
@@ -284,9 +295,10 @@ class MyView extends View {
         }
     }
 
+    public void setCanvasSize(int newCanvasSize) {
+        this.canvasSize = newCanvasSize;
+        this.cellsize = 560 / newCanvasSize;
+        clearCanvas();
+    }
 
 }
-
-
-
-

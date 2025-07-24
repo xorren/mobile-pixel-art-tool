@@ -4,14 +4,14 @@
 **Duration:** May 28, 2024 ~ June 3, 2024  
 **Team Members:** [@xorren](https://github.com/xorren) / [@hub-sandwich](https://github.com/hub-sandwich)
 
-
+<br>
 
 ## About the Project
 
 This is a mobile-friendly pixel art drawing tool created for a university assignment.  
 It provides a simple interface for users to draw pixel-based images using touch input.
 
-
+<br>
 
 ## Features
 
@@ -27,11 +27,13 @@ It provides a simple interface for users to draw pixel-based images using touch 
 
 - Color selection tool
 
-
+<br>
 
 ## Preview Screen
 
 ![Start Screen](https://github.com/Nextdoorbutter/Mobile_Pixelart/assets/131065002/9fe78125-eb8c-4a2e-b8aa-524a5c6bb435)
+
+<br>
 
 ## Project Video
 

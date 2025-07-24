@@ -4,14 +4,14 @@
 **Duration:** May 28, 2024 ~ June 3, 2024  
 **Team Members:** [@xorren](https://github.com/xorren) / [@hub-sandwich](https://github.com/hub-sandwich)
 
----
+
 
 ## About the Project
 
 This is a mobile-friendly pixel art drawing tool created for a university assignment.  
 It provides a simple interface for users to draw pixel-based images using touch input.
 
----
+
 
 ## Features
 
@@ -27,7 +27,7 @@ It provides a simple interface for users to draw pixel-based images using touch 
 
 - Color selection tool
 
----
+
 
 ## Preview Screen
 

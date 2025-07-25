@@ -10,10 +10,10 @@
 ## About the Project / 프로젝트 소개
 
 This is a mobile-friendly pixel art drawing tool created for a university assignment.  
-이 프로젝트는 대학교 과제로 제작된 모바일 친화적인 픽셀 아트 그리기 도구입니다.
+이 프로젝트는 **모바일 프로그래밍 과목의 과제**로 제작된 모바일 친화적인 픽셀 아트 그리기 도구입니다.
 
 It provides a simple interface for users to draw pixel-based images using touch input.  
-사용자가 터치 입력으로 픽셀 기반 이미지를 쉽게 그릴 수 있도록 단순한 UI를 제공합니다.
+사용자가 **터치 입력**으로 **픽셀 기반 이미지**를 쉽게 그릴 수 있도록 단순한 UI를 제공합니다.
 
 <br>
 

@@ -17,6 +17,20 @@ It provides a simple interface for users to draw pixel-based images using touch 
 
 <br>
 
+## Tech Stack / 기술 스택
+
+- **Development Environment / 개발 환경**  
+  - Android Studio
+
+- **Programming Language / 프로그래밍 언어**  
+  - Java
+
+- **Design Tools / 디자인 도구**  
+  - Aseprite – 픽셀 아트 아이콘 및 UI 에셋 제작
+
+<br>
+
+
 ## Features / 주요 기능
 
 - Touch-based drawing on a pixel grid  
@@ -48,18 +62,5 @@ It provides a simple interface for users to draw pixel-based images using touch 
 ## Project Video / 프로젝트 영상
 
 ![Project Video](https://github.com/Nextdoorbutter/Mobile_Pixelart/assets/131065002/f4efe994-5275-4ab7-a3ce-45b8d4bb2103)
-
-<br>
-
-## Tech Stack / 기술 스택
-
-- **Development Environment / 개발 환경**  
-  - Android Studio
-
-- **Programming Language / 프로그래밍 언어**  
-  - Java
-
-- **Design Tools / 디자인 도구**  
-  - Aseprite – 픽셀 아트 아이콘 및 UI 에셋 제작
 
 <br>

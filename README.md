@@ -63,9 +63,3 @@ It provides a simple interface for users to draw pixel-based images using touch 
   - Aseprite – 픽셀 아트 아이콘 및 UI 에셋 제작
 
 <br>
-
-## Acknowledgements / 참고 자료
-
-- [Aseprite Official Site](https://www.aseprite.org/)
-
-<br>
